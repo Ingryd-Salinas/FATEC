@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author x501286
+ * @author Ingryd Salinas
  */
 public class Horista extends Funcionario{
     // Atributos Protected: Para que o Pai possa ver
