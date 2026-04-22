@@ -37,7 +37,7 @@ public class FrameCadastro extends javax.swing.JFrame {
         lbNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         lbCPF = new javax.swing.JLabel();
-        ftfCPF = new javax.swing.JTextField();
+        tfCPF = new javax.swing.JTextField();
         lbSexo = new javax.swing.JLabel();
         rbMasculino = new javax.swing.JRadioButton();
         rbFeminino = new javax.swing.JRadioButton();
@@ -47,7 +47,7 @@ public class FrameCadastro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
         lbNascimento = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        tfNascimento = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
         btnSalvar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -74,9 +74,9 @@ public class FrameCadastro extends javax.swing.JFrame {
 
         lbCPF.setText("CPF");
 
-        ftfCPF.addActionListener(new java.awt.event.ActionListener() {
+        tfCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ftfCPFActionPerformed(evt);
+                tfCPFActionPerformed(evt);
             }
         });
 
@@ -95,7 +95,7 @@ public class FrameCadastro extends javax.swing.JFrame {
 
         lbEstado.setText("Estado");
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "BA", "MG", "PR", "RJ", "SC", "SP", " " }));
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "BA", "MG", "PR", "RJ", "SC", "SP" }));
         cbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEstadoActionPerformed(evt);
@@ -111,10 +111,15 @@ public class FrameCadastro extends javax.swing.JFrame {
         lbNascimento.setText("Nascimento");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNascimentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelCadastroClienteLayout = new javax.swing.GroupLayout(painelCadastroCliente);
         painelCadastroCliente.setLayout(painelCadastroClienteLayout);
@@ -143,7 +148,7 @@ public class FrameCadastro extends javax.swing.JFrame {
                                 .addGap(160, 160, 160)
                                 .addComponent(lbNascimento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(73, 73, 73)
                         .addGroup(painelCadastroClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(painelCadastroClienteLayout.createSequentialGroup()
@@ -154,7 +159,7 @@ public class FrameCadastro extends javax.swing.JFrame {
                             .addGroup(painelCadastroClienteLayout.createSequentialGroup()
                                 .addComponent(lbCPF)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ftfCPF)
+                                .addComponent(tfCPF)
                                 .addGap(44, 44, 44))))))
         );
         painelCadastroClienteLayout.setVerticalGroup(
@@ -165,7 +170,7 @@ public class FrameCadastro extends javax.swing.JFrame {
                     .addComponent(lbNome)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCPF)
-                    .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(painelCadastroClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSexo)
@@ -174,7 +179,7 @@ public class FrameCadastro extends javax.swing.JFrame {
                     .addComponent(lbEstado)
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNascimento)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(painelCadastroClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbObservacoes)
@@ -324,9 +329,9 @@ public class FrameCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
 
-    private void ftfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCPFActionPerformed
+    private void tfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ftfCPFActionPerformed
+    }//GEN-LAST:event_tfCPFActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
@@ -344,7 +349,7 @@ public class FrameCadastro extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
         cliente.nome = tfNome.getText();
-        cliente.cpf = ftfCPF.getText();
+        cliente.cpf = tfCPF.getText();
         cliente.estado = cbEstado.getSelectedItem().toString();
         cliente.sexo = rbMasculino.isSelected()?"Masculino":"Feminino";
         cliente.esportes = chkEsportes.isSelected();
@@ -359,9 +364,15 @@ public class FrameCadastro extends javax.swing.JFrame {
 
     private void limparCampos(){
         tfNome.setText("");
-        ftfCPF.setText("");
+        tfCPF.setText("");
+        tfNascimento.setText("");
         grupoSexo.clearSelection();
+        cbEstado.setSelectedItem("Selecione");
         chkEsportes.setSelected(false);
+        chkVideoGame.setSelected(false);
+        chkLeitura.setSelected(false);
+        chkDança.setSelected(false);
+        chkMarcenaria.setSelected(false);
         txtObservacoes.setText("");
         
     }
@@ -378,15 +389,24 @@ public class FrameCadastro extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
         tfNome.setText(cliente.nome);
-        ftfCPF.setText(cliente.cpf);
+        tfCPF.setText(cliente.cpf);
         rbMasculino.setSelected(cliente.sexo == "Masculino"?true:false);
         rbFeminino.setSelected(cliente.sexo == "Feminino"?true:false);
         chkEsportes.setSelected(cliente.esportes);
+        chkEsportes.setSelected(cliente.esportes);
+        chkVideoGame.setSelected(cliente.videogame);
+        chkLeitura.setSelected(cliente.leitura);
+        chkDança.setSelected(cliente.dança);
+        chkMarcenaria.setSelected(cliente.marcenaria);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbEstadoActionPerformed
+
+    private void tfNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,9 +454,7 @@ public class FrameCadastro extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkLeitura;
     private javax.swing.JCheckBox chkMarcenaria;
     private javax.swing.JCheckBox chkVideoGame;
-    private javax.swing.JTextField ftfCPF;
     private javax.swing.ButtonGroup grupoSexo;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCPF;
@@ -449,6 +467,8 @@ public class FrameCadastro extends javax.swing.JFrame {
     private javax.swing.JPanel panelHobbies;
     private javax.swing.JRadioButton rbFeminino;
     private javax.swing.JRadioButton rbMasculino;
+    private javax.swing.JTextField tfCPF;
+    private javax.swing.JFormattedTextField tfNascimento;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextArea txtObservacoes;
     // End of variables declaration//GEN-END:variables
