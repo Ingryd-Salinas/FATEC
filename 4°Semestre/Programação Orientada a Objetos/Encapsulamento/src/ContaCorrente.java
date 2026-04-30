@@ -75,10 +75,12 @@ public class ContaCorrente {
         System.out.println("Conta Corrente: " + getNumeroConta());
         System.out.println("Saldo: " + getSaldo());
         System.out.println("Senha: " + getSenha());
+        menu();
     }
     
     public void exibirSaldo(){
-        System.out.println("Saldo: " + getSaldo());
+        JOptionPane.showMessageDialog(null, "Saldo: " + getSaldo());
+        menu();
     }
     
     //Método para realizar o depósito alterando o saldo da conta do cliente
@@ -90,6 +92,7 @@ public class ContaCorrente {
             float novoSaldo = saldoAnterior + valorDeposito;
             setSaldo(novoSaldo);
         */
+        menu();
     }
     
     //Método para realizar o saque de valores em uma Conta Corrente alterando o saldo da conta do cliente
@@ -98,10 +101,16 @@ public class ContaCorrente {
             JOptionPane.showMessageDialog(null, "Senha inválida - saque NÃO realizado!!");
         else{
             float valorSaque = Float.parseFloat(JOptionPane.showInputDialog("Valor a sacar: "));
+            while(valorSaque > getSaldo())
+            {
+                JOptionPane.showMessageDialog(null, "O valor é maior que o saldo!");
+                valorSaque = Float.parseFloat(JOptionPane.showInputDialog("Valor a sacar: "));
+            }
+                
             setSaldo(getSaldo() - valorSaque);
         }
         exibirSaldo();
-        
+        menu();
     }
     
     //Método para receber a senha
@@ -153,7 +162,8 @@ public class ContaCorrente {
             JOptionPane.showMessageDialog(null, "Senha antiga incorreta!");
             mudarSenha();
         }
-            
+        JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!!");
+        menu();    
     }
     
     //Método para conferir a nova senha

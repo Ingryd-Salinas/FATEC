@@ -12,7 +12,6 @@
 public class Banco {
     public static void main(String[] args) {
         ContaCorrente cc = new ContaCorrente("Ana Maria", 12345, 1000f, 224466);
-        cc.exibirDadosContaCorrente();
         cc.menu();
         //cc.realizarDeposito(300);
         //cc.realizarSaque();
